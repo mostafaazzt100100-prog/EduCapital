@@ -1,0 +1,3229 @@
+/* ================= GENERAL SETTINGS ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #292929;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================= TOP HEADER ================= */
+
+.top-header {
+    height: 30px;
+    padding: 0 8%;
+    background-color: #ffffff;
+
+    border-bottom: 1px solid #eeeeee;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 12px;
+    color: #444444;
+}
+
+.top-left,
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.top-header a {
+    transition: color 0.3s ease;
+}
+
+.top-header a:hover {
+    color:  #7655ff;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.social-icons a {
+    font-size: 12px;
+}
+
+
+/* ================= MAIN NAVIGATION ================= */
+
+.main-navigation {
+    height: 85px;
+    padding: 0 8%;
+
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+/* ================= LOGO ================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    white-space: nowrap;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    background-color: #ff2020;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 19px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #292929;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* ================= NAVIGATION LINKS ================= */
+
+.nav-links {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+    gap: 27px; 
+    margin-left : 100px;
+    height: 100%;
+}
+
+.nav-links li {
+    position: relative;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.nav-links > li > a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 100%;
+    padding: 0;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #292929;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+
+/* NAVIGATION HOVER COLOR */
+
+.nav-links > li > a:hover {
+    color:  #7655ff;
+    letter-spacing: 0.3px;
+}
+/* NAVBAR ANIMATED RECTANGLE */
+
+.main-navigation .nav-links > li > a {
+display: inline-block;
+text-decoration: none;
+padding: 0;
+margin: 0;
+}
+
+.main-navigation .nav-links > li > a > span {
+position: relative;
+display: inline-block;
+padding: 8px 12px;
+color: #181817;
+transition: color 0.6s ease;
+margin: 0;
+}
+/* Draw the rectangle */
+.main-navigation .nav-links > li > a > span::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    pointer-events: none;
+}
+
+/* Top and bottom lines */
+.main-navigation .nav-links > li > a > span::before {
+    border-top-color: #2563EB;
+    border-bottom-color: #2563EB;
+    transform: scaleX(0);
+    transition: transform 0.6s ease;
+}
+/* تنسيق العنصر الأب ليكون المرجع لموضع القائمة */
+.main-navigation .nav-links .dropdown-parent {
+  position: relative;
+  list-style: none;
+}
+
+/* تصميم بوكس القائمة المنسدلة والأعمدة */
+/* تصميم بوكس القائمة المنسدلة مع تأثير البداية الصغيرة والتكبير */
+.dropdown-menu {
+position: absolute;
+top: 100%;
+left: 0;
+background-color: #ffffff;
+padding: 20px;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+display: flex;
+gap: 30px;
+min-width: 320px;
+
+opacity: 0;
+visibility: hidden;
+transform: translateY(15px) scale(0.85);
+transform-origin: top center;
+
+transition:
+    opacity  0.6s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.8s;
+
+z-index: 99;
+
+}
+
+.dropdown-parent:hover .dropdown-menu {
+opacity: 1;
+visibility: visible;
+transform: translateY(0) scale(1);
+}
+
+/* تنسيق الأعمدة داخل القائمة */
+.dropdown-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdown-column h3 {
+  font-size: 16px;
+  color: #e1e50d;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.dropdown-column a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.dropdown-column a:hover {
+  color: #2563EB; /* نفس لون الـ Border المتحرك */
+  padding-left: 5px;
+}
+
+/* إظهار القائمة وتكبيرها للحجم الطبيعي عند تمرير الماوس */
+.main-navigation .nav-links .dropdown-parent:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1); 
+}
+/* Left and right lines */
+.main-navigation .nav-links > li > a > span::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-left: 2px solid #2563EB;
+    border-right: 2px solid #2563EB;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+/* Animate all four sides */
+.main-navigation .nav-links > li > a:hover > span::before {
+    transform: scaleX(1);
+}
+
+.main-navigation .nav-links > li > a:hover > span::after {
+    transform: scaleY(1);
+}
+
+.main-navigation .nav-links > li > a:hover > span {
+    color: #2563EB;
+}
+
+/* TOP LINE */
+
+.nav-links > li > a::before {
+    top: 20px;
+
+    transform-origin: left;
+}
+
+
+/* BOTTOM LINE */
+
+.nav-links > li > a::after {
+    bottom: 20px;
+
+    transform-origin: right;
+}
+
+
+/* ANIMATE THE LINES */
+
+.nav-links > li > a:hover::before {
+    transform: scaleX(1);
+    top: 25px;
+}
+
+.nav-links > li > a:hover::after {
+    transform: scaleX(1);
+    bottom: 25px;
+}
+
+
+/* ================= PAGES DROPDOWN ================= */
+
+.pages-item {
+    position: relative;
+}
+
+
+/* DROPDOWN ARROW */
+
+.dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+}
+
+.pages-item:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* DROPDOWN BOX */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 100%;
+    left: -25px;
+
+    width: 370px;
+    padding: 22px;
+
+    background-color: #ffffff;
+
+    border-radius: 5px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    gap: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* SHOW DROPDOWN ON HOVER */
+
+.pages-item:hover .dropdown-menu,
+.pages-item:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* DROPDOWN COLUMNS */
+
+.dropdown-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.dropdown-column h3 {
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #292929;
+
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+/* DROPDOWN LINKS */
+
+.dropdown-column a {
+    display: block;
+
+    padding: 9px 0;
+
+    font-size: 13px;
+    color: #555555;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.dropdown-column a:hover {
+    color:  #7655ff;
+    padding-left: 5px;
+}
+
+
+/* ================= NAVIGATION ICONS ================= */
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.nav-icons a {
+    font-size: 19px;
+    color: #292929;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.nav-icons a:hover {
+    color:  #7655ff;
+    transform: translateY(-2px);
+}
+
+
+/* ================= ANNOUNCEMENT BAR ================= */
+
+.announcement-bar {
+    height: 45px;
+
+    background-color: #292929;
+    color: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.announcement-bar p {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+
+/* ANNOUNCEMENT LINK */
+
+.announcement-link {
+    display: inline-block;
+
+    margin-left: 5px;
+
+    color: #ffffff;
+
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    font-weight: 600;
+
+    transition:
+        letter-spacing 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* LETTER SPACING HOVER */
+
+.announcement-link:hover {
+    letter-spacing: 1.5px;
+    color: #ffcccc;
+}
+
+
+/* ================= HERO SECTION ================= */
+
+.hero-section {
+    min-height: 600px;
+
+    background-color: #e5f9ffd0;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+    width: 50%;
+
+    padding-left: 10%;
+    padding-right: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* SMALL HEADING */
+
+.hero-subtitle {
+    font-size: 22px;
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-style: italic;
+
+    color:   #7655ff;
+
+    margin-bottom: 22px;
+}
+
+
+/* MAIN HEADING */
+
+.hero-content h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 48px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    color: #292929;
+
+    margin-bottom: 25px;
+}
+
+
+/* DESCRIPTION */
+
+.hero-description {
+    max-width: 440px;
+
+    font-size: 15px;
+    line-height: 1.9;
+
+    color: #555555;
+
+    margin-bottom: 30px;
+}
+
+
+/* ================= HERO BUTTON ================= */
+
+.hero-button {
+    min-width: 190px;
+    height: 55px;
+
+    padding: 0 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #292929;
+    color: #ffffff;
+
+    border: 1px solid #292929;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* BUTTON HOVER */
+
+.hero-button:hover {
+    background-color:  #8069db;
+    border-color:  #7360c1;
+    color: #ffffff;
+}
+
+
+/* ================= HERO IMAGE ================= */
+
+.hero-image {
+    width: 50%;
+    height: 600px;
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.5s ease;
+}
+
+
+/* SUBTLE IMAGE HOVER */
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+/* ===== TOP HEADER HOVER ANIMATION ===== */
+
+.top-header a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Smooth movement and color */
+
+.top-header a:hover {
+    color:  #7655ff;
+    transform: translateY(-3px);
+}
+
+/* Animated underline */
+
+.top-header a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+
+    width: 100%;
+    height: 2px;
+
+    background-color:  #7655ff;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.3s ease;
+}
+
+/* Show underline on hover */
+
+.top-header a:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+
+/* ==========================================
+   SECTION 2: EDUCATIONAL CATEGORIES
+========================================== */
+
+.educational-categories {
+    width: 100%;
+
+    padding: 70px 8%;
+
+    background-color: #ffffff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    gap: 30px;
+}
+
+
+/* ==========================================
+   CATEGORY CARD
+========================================== */
+
+.category-card {
+    position: relative;
+
+    flex: 1;
+    height: 350px;
+
+    overflow: hidden;
+
+    background-color: #eeeeee;
+
+    cursor: pointer;
+}
+
+
+/* ==========================================
+   CATEGORY IMAGE
+========================================== */
+
+.category-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.6s ease;
+}
+
+
+/* SUBTLE IMAGE ZOOM */
+
+.category-card:hover .category-image {
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   DARK GRADIENT OVERLAY
+========================================== */
+
+.category-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding: 35px 15px;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 20%,
+        rgba(0, 0, 0, 0.15) 45%,
+        rgba(0, 0, 0, 0.65) 75%,
+        rgba(0, 0, 0, 0.88) 100%
+    );
+
+    transition: background 0.4s ease;
+}
+
+
+/* ==========================================
+   CATEGORY CONTENT
+========================================== */
+
+.category-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   CATEGORY TITLE
+========================================== */
+
+.category-title {
+    color: #ffffff;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    margin: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        transform 0.4s ease,
+        margin-bottom 0.4s ease;
+}
+
+
+/* MOVE TITLE UP ON HOVER */
+
+.category-card:hover .category-title {
+    transform: translateY(0);
+
+    margin-bottom: 12px;
+}
+
+
+/* ==========================================
+   EXPLORE COURSES LINK
+========================================== */
+
+.category-link {
+    display: inline-block;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: underline;
+    text-underline-offset: 5px;
+
+    letter-spacing: 0.3px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(12px);
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.35s ease,
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+
+/* REVEAL LINK ON CARD HOVER */
+
+.category-card:hover .category-link {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   LINK HOVER EFFECT
+========================================== */
+
+.category-link:hover {
+    color: #ff2020;
+
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   CARD HOVER GRADIENT
+========================================== */
+
+.category-card:hover .category-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 10%,
+        rgba(0, 0, 0, 0.25) 40%,
+        rgba(0, 0, 0, 0.75) 75%,
+        rgba(0, 0, 0, 0.92) 100%
+    );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   SECTION 3: TRENDING COURSES
+================================= */
+
+.trending-courses {
+    width: 100%;
+    padding: 70px 60px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* SECTION HEADER */
+
+.trending-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.trending-header h2 {
+    margin: 0;
+    color: #222222;
+    font-size: 32px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* CATEGORY NAVIGATION */
+
+.category-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 27px;
+}
+
+.category-link {
+    position: relative;
+    padding: 10px 0;
+    color: #777777;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.category-link:hover,
+.category-link.active {
+    color: #6c4cff;
+}
+
+.category-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #6c4cff;
+    transition: width 0.3s ease;
+}
+
+.category-link:hover::after,
+.category-link.active::after {
+    width: 100%;
+}
+
+
+/* DIVIDER */
+
+.trending-divider {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 35px;
+    background-color: #e8e8e8;
+}
+
+
+/* COURSES CONTAINER */
+
+.courses-container {
+    position: relative;
+    width: 100%;
+}
+
+
+/* COURSES GRID */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+
+/* COURSE CARD */
+
+.course-card {
+    min-width: 0;
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =================================
+   IMAGE FLIP EFFECT
+================================= */
+
+.course-image-container {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    perspective: 1000px;
+    overflow: hidden;
+    background-color: #eeeeee;
+}
+
+.course-image-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.8s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+
+/* FLIP THE IMAGE ON HOVER */
+
+.course-card:hover .course-image-inner {
+    transform: rotateY(180deg);
+}
+
+
+/* FRONT AND BACK SIDES */
+
+.course-image-front,
+.course-image-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.course-image-front {
+    transform: rotateY(0deg);
+}
+
+.course-image-back {
+    transform: rotateY(180deg);
+}
+
+
+/* IMAGES */
+
+.course-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: filter 0.4s ease;
+}
+
+
+/* DARK OVERLAY DURING HOVER */
+
+.course-image-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-color: rgba(20, 15, 40, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.course-card:hover .course-image-container::after {
+    opacity: 1;
+}
+
+
+/* =================================
+   COURSE ACTION ICONS
+================================= */
+
+.course-actions {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%, 15px);
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* SHOW ALL THREE ICONS WHEN HOVERING */
+
+.course-card:hover .course-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    transition-delay: 0.2s;
+}
+
+
+/* INDIVIDUAL ICONS */
+
+.course-action-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 46px;
+
+    color: #292929;
+    font-size: 25px;
+    font-weight: 400;
+    text-decoration: none;
+
+    border-right: 1px solid #eeeeee;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.course-action-icon:last-child {
+    border-right: none;
+}
+
+
+/* ICON HOVER COLOR */
+
+.course-action-icon:hover {
+    color: #6c4cff;
+    background-color: #f5f2ff;
+}
+
+
+/* ICON MOVEMENT */
+
+.course-action-icon span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.course-action-icon:hover span {
+    transform: translateY(-3px) scale(1.12);
+}
+
+
+/* =================================
+   COURSE INFORMATION
+================================= */
+
+.course-info {
+    padding: 20px 18px 22px;
+    background-color: #ffffff;
+}
+
+.course-category {
+    margin: 0 0 10px;
+    color: #6c4cff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.course-info h3 {
+    min-height: 44px;
+    margin: 0 0 17px;
+    color: #252525;
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.course-card:hover .course-info h3 {
+    color: #6c4cff;
+}
+
+
+/* COURSE PRICES */
+
+.course-price {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.current-price {
+    color: #6c4cff;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.old-price {
+    color: #999999;
+    font-size: 14px;
+    text-decoration: line-through;
+}
+
+
+/* =================================
+   LEFT AND RIGHT ARROWS
+================================= */
+
+.course-arrow {
+    position: absolute;
+    top: 115px;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+
+    background-color: #ffffff;
+    color: #333333;
+
+    font-size: 15px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.arrow-left {
+    left: -19px;
+}
+
+.arrow-right {
+    right: -19px;
+}
+
+.course-arrow:hover {
+    color: #ffffff;
+    background-color: #6c4cff;
+    border-color: #6c4cff;
+    transform: scale(1.08);
+}
+
+
+/* Trending Courses Top Bar */
+
+.trending-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Main Title */
+
+.trending-title {
+    margin: 0;
+    color: #222222;
+    font-size: 32px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Categories */
+
+.trending-categories {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 28px;
+}
+
+/* Category Links */
+
+.trending-link {
+    position: relative;
+    padding: 10px 0;
+    color: #555555;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+/* Animated Underline */
+
+.trending-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7655ff, #b18aff);
+    transition: width 0.35s ease;
+}
+
+/* Hover Effect */
+
+.trending-link:hover,
+.trending-link.active {
+    color: #7655ff;
+}
+
+.trending-link:hover::after,
+.trending-link.active::after {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* =====================================
+   SECTION 4: STUDENT TESTIMONIALS
+===================================== */
+
+.student-testimonials {
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+    padding: 65px 80px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f0fbfd;
+
+    border-top: 1px solid #e3e8e9;
+    border-bottom: 1px solid #e3e8e9;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================
+   SECTION HEADING
+===================================== */
+
+.testimonial-heading {
+    margin: 0 0 35px;
+
+    color: #222222;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =====================================
+   TESTIMONIAL CONTENT
+===================================== */
+
+.testimonial-content {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================
+   TESTIMONIAL TEXT
+===================================== */
+
+.testimonial-text {
+    max-width: 720px;
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 17px;
+    font-weight: 400;
+
+    line-height: 1.9;
+    text-align: center;
+}
+
+
+/* =====================================
+   NAVIGATION ARROWS
+===================================== */
+
+.testimonial-arrow {
+    position: absolute;
+    top: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    color: #444444;
+
+    font-size: 22px;
+
+    cursor: pointer;
+    user-select: none;
+
+    transform: translateY(-50%);
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* LEFT ARROW */
+
+.testimonial-arrow-left {
+    left: 0;
+}
+
+
+/* RIGHT ARROW */
+
+.testimonial-arrow-right {
+    right: 0;
+}
+
+
+/* ARROW HOVER */
+
+.testimonial-arrow:hover {
+    color: #e63946;
+}
+
+.testimonial-arrow-left:hover {
+    transform: translate(-4px, -50%);
+}
+
+.testimonial-arrow-right:hover {
+    transform: translate(4px, -50%);
+}
+
+
+/* =====================================
+   STUDENT PROFILE
+===================================== */
+
+.student-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+}
+
+
+/* =====================================
+   STUDENT AVATAR CONTAINER
+===================================== */
+
+.student-avatar-container {
+    width: 85px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+/* =====================================
+   STUDENT AVATAR IMAGE
+===================================== */
+
+.student-avatar {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* AVATAR HOVER */
+
+.student-avatar-container:hover .student-avatar {
+    transform: scale(1.12);
+}
+
+
+/* =====================================
+   STUDENT INFORMATION
+===================================== */
+
+.student-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* STUDENT NAME */
+
+.student-name {
+    margin: 0 0 7px;
+
+    color: #252525;
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+/* STUDENT ROLE */
+
+.student-role {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+/* =================================
+   Section 5: Recommended Courses
+================================= */
+
+.recommended-courses {
+    width: 100%;
+    padding: 65px 60px 75px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* Section Heading */
+
+.recommended-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #172554;
+    margin: 0 0 45px;
+}
+
+/* Courses Container */
+
+.recommended-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    position: relative;
+}
+
+/* Course Card */
+
+.recommended-card {
+    min-width: 0;
+    text-align: center;
+}
+
+/* Image Wrapper */
+
+.recommended-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background-color: #eff6ff;
+}
+
+/* Course Images */
+
+.recommended-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* First Image */
+
+.recommended-image-primary {
+    z-index: 1;
+}
+
+/* Second Image */
+
+.recommended-image-secondary {
+    z-index: 2;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.9s ease-in-out;
+}
+
+/* Image Reveal Animation */
+
+.recommended-card:hover .recommended-image-secondary {
+    clip-path: inset(0 0 0 0);
+}
+
+/* Action Icons Container */
+
+.recommended-actions {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%, 15px);
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Show Icons on Hover */
+
+.recommended-card:hover .recommended-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    transition-delay: 0.15s;
+}
+
+/* Individual Icons */
+
+.recommended-action-icon {
+    width: 48px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    color: #172554;
+    background-color: #ffffff;
+
+    font-size: 21px;
+    text-decoration: none;
+
+    border-right: 1px solid #dbeafe;
+
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Remove Last Border */
+
+.recommended-action-icon:last-child {
+    border-right: none;
+}
+
+/* Blue Hover for Icons */
+
+.recommended-action-icon:hover {
+    color: #2563eb;
+    background-color: #eff6ff;
+    transform: translateY(-3px);
+}
+
+/* Course Title */
+
+.recommended-title {
+    margin: 20px 0 12px;
+
+    color: #172554;
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+/* Blue Hover for Course Title */
+
+.recommended-card:hover .recommended-title {
+    color: #2563eb;
+}
+
+/* Prices Container */
+
+.recommended-prices {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Current Price */
+
+.recommended-current-price {
+    color: #2563eb;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Original Price */
+
+.recommended-original-price {
+    color: #94a3b8;
+    font-size: 15px;
+    text-decoration: line-through;
+}
+
+/* Navigation Arrows */
+
+.recommended-arrow {
+    position: absolute;
+    top: 125px;
+    z-index: 6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    color: #172554;
+    background-color: #ffffff;
+
+    font-size: 23px;
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Left Arrow */
+
+.recommended-arrow-left {
+    left: -40px;
+}
+
+/* Right Arrow */
+
+.recommended-arrow-right {
+    right: -40px;
+}
+
+/* Blue Arrow Hover */
+
+.recommended-arrow:hover {
+    color: #2563eb;
+}
+
+.recommended-arrow-left:hover {
+    transform: translateX(-4px);
+}
+
+.recommended-arrow-right:hover {
+    transform: translateX(4px);
+}
+
+
+/* ========================================
+   Section 6: Latest Educational News
+======================================== */
+
+.latest-news {
+    width: 100%;
+    padding: 75px 60px 80px;
+    box-sizing: border-box;
+
+    background-color: #eafcff;
+
+    border-bottom: 1px solid #e0e0e0;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Section Heading */
+
+.news-heading {
+    margin: 0 0 50px;
+
+    text-align: center;
+
+    color: #172554;
+
+    font-size: 34px;
+    font-weight: 700;
+}
+
+
+/* News Container */
+
+.news-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 30px;
+
+    width: 100%;
+}
+
+
+/* News Card */
+
+.news-card {
+    min-width: 0;
+
+    text-align: left;
+}
+
+
+/* Image Wrapper */
+
+.news-image-wrapper {
+    position: relative;
+
+    width: 100%;
+    height: 245px;
+
+    overflow: hidden;
+
+    background-color: #dbeafe;
+}
+
+
+/* Hide Checkbox */
+
+.news-image-toggle {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* Clickable Image */
+
+.news-image-label {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    cursor: zoom-in;
+}
+
+
+/* Image */
+
+.news-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1);
+
+    transition: transform 1.4s ease-in-out;
+}
+
+
+/* Click to Zoom */
+
+.news-image-toggle:checked + .news-image-label .news-image {
+    transform: scale(1.25);
+}
+
+
+/* Cursor When Clicked */
+
+.news-image-toggle:checked + .news-image-label {
+    cursor: zoom-out;
+}
+
+
+/* Hover Zoom */
+
+.news-image-label:hover .news-image {
+    transform: scale(1.06);
+}
+
+
+/* Keep Clicked Zoom Active on Hover */
+
+.news-image-toggle:checked + .news-image-label:hover .news-image {
+    transform: scale(1.25);
+}
+
+
+/* News Category */
+
+.news-category {
+    margin: 20px 0 10px;
+
+    color: #64748b;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    transition: color 0.4s ease;
+}
+
+
+/* News Title */
+
+.news-title {
+    margin: 0 0 14px;
+
+    color: #172554;
+
+    font-size: 21px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    transition: color 0.4s ease;
+}
+
+
+/* Title Hover */
+
+.news-title:hover {
+    color: #e63946;
+}
+
+
+/* News Description */
+
+.news-description {
+    margin: 0 0 18px;
+
+    color: #64748b;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.8;
+
+    transition: color 0.4s ease;
+}
+
+
+/* Read More */
+
+.read-more {
+    display: inline-block;
+
+    color: #172554;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    transition:
+        color 0.4s ease,
+        text-underline-offset 0.3s ease;
+}
+
+
+/* Read More Hover */
+
+.read-more:hover {
+    color: #2563eb;
+
+    text-underline-offset: 6px;
+}
+
+
+/* ========================================
+   Turn Card Text Blue When Image Is Clicked
+======================================== */
+
+.news-card:has(.news-image-toggle:checked) .news-category,
+.news-card:has(.news-image-toggle:checked) .news-title,
+.news-card:has(.news-image-toggle:checked) .news-description,
+.news-card:has(.news-image-toggle:checked) .read-more {
+    color: #2563eb;
+}
+/* Change news title color when hovering over the card */
+
+.news-card:hover .news-title {
+    color: #2563eb;
+    transition: color 0.3s ease;
+}
+
+
+/* ========================================
+   End of Section 6
+======================================== */
+
+
+
+/* =========================================
+   Section 7: Educational Platform Features
+========================================= */
+
+.learning-feature-section {
+    width: 100%;
+    padding: 65px 60px;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Features Container */
+
+.learning-feature-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* Feature Card */
+
+.learning-feature-card {
+    min-width: 0;
+    padding: 30px 20px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5edf8;
+    border-radius: 12px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Card Hover */
+
+.learning-feature-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #bfdbfe;
+
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Icon Button */
+
+.learning-feature-icon {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 22px;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #eff6ff;
+    color: #2563eb;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        color 0.4s ease,
+        background-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* SVG Icons */
+
+.learning-feature-icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: transform 0.4s ease;
+}
+
+
+/* Icon Hover */
+
+.learning-feature-icon:hover {
+    color: #ffffff;
+    background-color: #2563eb;
+
+    transform: translateY(-4px) scale(1.08);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Icon Click Animation */
+
+.learning-feature-icon:active {
+    animation: learning-feature-icon-lift 0.4s ease;
+}
+
+
+/* Icon Keyboard Focus */
+
+.learning-feature-icon:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 5px;
+}
+
+
+/* Icon Lift Keyframes */
+
+@keyframes learning-feature-icon-lift {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.12);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Feature Title */
+
+.learning-feature-title {
+    margin: 0 0 14px;
+
+    color: #172554;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Title Hover */
+
+.learning-feature-card:hover .learning-feature-title {
+    color: #2563eb;
+}
+
+
+/* Feature Description */
+
+.learning-feature-description {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   Tablet Layout
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .learning-feature-section {
+        padding: 50px 30px;
+    }
+
+    .learning-feature-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+}
+
+
+/* =========================================
+   Mobile Layout
+========================================= */
+
+@media (max-width: 600px) {
+
+    .learning-feature-section {
+        padding: 40px 20px;
+    }
+
+    .learning-feature-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .learning-feature-card {
+        padding: 25px 18px;
+    }
+
+    .learning-feature-icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 18px;
+    }
+
+    .learning-feature-title {
+        font-size: 18px;
+    }
+
+    .learning-feature-description {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================
+   Reduced Motion Accessibility
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .learning-feature-card,
+    .learning-feature-icon,
+    .learning-feature-icon svg,
+    .learning-feature-title {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .learning-feature-card:hover,
+    .learning-feature-icon:hover {
+        transform: none;
+    }
+
+}
+/* ==========================================
+   Section 7: Educational Platform Features
+========================================== */
+
+.learning-feature-section {
+    width: 100%;
+    padding: 65px 60px;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Features Container */
+
+.learning-feature-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* Feature Card */
+
+.learning-feature-card {
+    min-width: 0;
+    padding: 30px 20px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e5edf8;
+    border-radius: 12px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+}
+
+
+/* Card Hover */
+
+.learning-feature-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #bfdbfe;
+
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Icon Button */
+
+.learning-feature-icon {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 22px;
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #eff6ff;
+    color: #2563eb;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        color 0.4s ease,
+        background-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* SVG Icon */
+
+.learning-feature-icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Icon Hover */
+
+.learning-feature-icon:hover {
+    color: #ffffff;
+    background-color: #2563eb;
+
+    transform: translateY(-4px) scale(1.08);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* Icon Click Animation */
+
+.learning-feature-icon:active {
+    animation: learning-feature-lift 0.4s ease;
+}
+
+
+/* Keyboard Focus */
+
+.learning-feature-icon:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 5px;
+}
+
+
+/* Lift Animation */
+
+@keyframes learning-feature-lift {
+
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.12);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Feature Title */
+
+.learning-feature-title {
+    margin: 0 0 14px;
+
+    color: #172554;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    transition: color 0.3s ease;
+}
+
+
+/* Title Hover */
+
+.learning-feature-card:hover .learning-feature-title {
+    color: #2563eb;
+}
+
+
+/* Feature Description */
+
+.learning-feature-description {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   Responsive Layout: Tablet
+========================================== */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .learning-feature-section {
+        padding: 50px 30px;
+    }
+
+    .learning-feature-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+}
+
+
+/* ==========================================
+   Responsive Layout: Mobile
+========================================== */
+
+@media (max-width: 600px) {
+
+    .learning-feature-section {
+        padding: 40px 20px;
+    }
+
+    .learning-feature-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .learning-feature-card {
+        padding: 25px 18px;
+    }
+
+    .learning-feature-icon {
+        width: 70px;
+        height: 70px;
+
+        margin-bottom: 18px;
+    }
+
+    .learning-feature-title {
+        font-size: 18px;
+    }
+
+    .learning-feature-description {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ==========================================
+   Accessibility: Reduced Motion
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .learning-feature-card,
+    .learning-feature-icon,
+    .learning-feature-title {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .learning-feature-card:hover,
+    .learning-feature-icon:hover {
+        transform: none;
+    }
+
+}/* =========================================
+   SECTION 8: EDUCATIONAL PLATFORM FOOTER
+========================================= */
+
+.edu-footer {
+    width: 100%;
+    padding: 40px 7% 25px;
+    background-color: #161616;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   NEWSLETTER SECTION
+========================================= */
+
+.edu-newsletter {
+    display: grid;
+    grid-template-columns: 1.15fr 1.8fr auto;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 28px;
+}
+
+.edu-newsletter-text {
+    min-width: 0;
+}
+
+.edu-newsletter-text h2 {
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.edu-newsletter-text p {
+    margin: 0;
+    color: #b0b0b0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   EMAIL INPUT
+========================================= */
+
+.edu-newsletter-form {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    min-width: 0;
+}
+
+.edu-newsletter-form input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 14px 18px;
+    box-sizing: border-box;
+
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+
+    background-color: #ffffff;
+    color: #222222;
+
+    font-size: 16px;
+    outline: none;
+
+    transition: border-color 0.3s ease;
+}
+
+.edu-newsletter-form input::placeholder {
+    color: #888888;
+}
+
+.edu-newsletter-form input:focus {
+    border-color: #3B82F6;
+}
+
+
+/* =========================================
+   SUBSCRIBE BUTTON
+========================================= */
+
+.edu-newsletter-form button {
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 3px;
+
+    background-color: #2563EB;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.edu-newsletter-form button:hover {
+    background-color: #1D4ED8;
+
+    box-shadow:
+        0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+
+/* =========================================
+   SOCIAL MEDIA ICONS
+========================================= */
+
+.edu-social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.edu-social-link {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #94A3B8;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.edu-social-link svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Facebook */
+.edu-social-link:first-child svg {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* Instagram Center Dot */
+.edu-instagram-dot {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* YouTube Play Button */
+.edu-youtube-play {
+    fill: #161616;
+    stroke: none;
+}
+
+
+/* Social Hover */
+.edu-social-link:hover {
+    color: #60A5FA;
+    transform: scale(1.1);
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.edu-footer-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #353535;
+}
+
+
+/* =========================================
+   FOOTER MAIN CONTENT
+========================================= */
+
+.edu-footer-main {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1.1fr
+        1fr;
+
+    gap: 35px;
+
+    padding: 75px 0 60px;
+
+    align-items: start;
+}
+
+.edu-footer-brand,
+.edu-footer-column {
+    min-width: 0;
+}
+
+
+/* =========================================
+   PLATFORM LOGO
+========================================= */
+
+.edu-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    text-decoration: none;
+}
+
+
+/* Logo Icon Circle */
+.edu-logo-icon {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #DBEAFE;
+    color: #3B82F6;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* Graduation Cap */
+.edu-logo-icon svg {
+    display: block;
+    width: 32px;
+    height: 32px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Logo Hover */
+.edu-footer-logo:hover .edu-logo-icon {
+    color: #2563EB;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 14px rgba(59, 130, 246, 0.4);
+}
+
+
+/* Platform Name */
+.edu-logo-name {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.edu-logo-name span {
+    color: #60A5FA;
+    font-weight: 400;
+}
+
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.edu-footer-column h3 {
+    margin: 5px 0 32px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.edu-footer-column ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.edu-footer-column li {
+    margin-bottom: 17px;
+}
+
+.edu-footer-column li a {
+    color: #a5a5a5;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.edu-footer-column li a:hover {
+    color: #60A5FA;
+}
+
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.edu-footer-copyright {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.edu-footer-copyright p {
+    margin: 0;
+
+    color: #a5a5a5;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .edu-footer {
+        padding: 40px 5% 25px;
+    }
+
+    .edu-newsletter {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 25px;
+    }
+
+    .edu-social-icons {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+
+    .edu-footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+        padding: 50px 0;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .edu-footer {
+        padding: 35px 22px 20px;
+    }
+
+    .edu-newsletter {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .edu-newsletter-text h2 {
+        font-size: 22px;
+    }
+
+    .edu-newsletter-form {
+        flex-direction: column;
+    }
+
+    .edu-newsletter-form input,
+    .edu-newsletter-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .edu-social-icons {
+        justify-content: flex-start;
+    }
+
+    .edu-footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px 20px;
+        padding: 40px 0;
+    }
+
+    .edu-footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .edu-logo-name {
+        font-size: 23px;
+    }
+
+    .edu-footer-column h3 {
+        margin-bottom: 22px;
+        font-size: 17px;
+    }
+
+    .edu-footer-column li a {
+        font-size: 14px;
+    }
+
+    .edu-footer-copyright p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.edu-footer a:focus-visible,
+.edu-footer button:focus-visible,
+.edu-footer input:focus-visible {
+    outline: 2px solid #60A5FA;
+    outline-offset: 4px;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .edu-footer *,
+    .edu-footer *::before,
+    .edu-footer *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
+.logo-icon {
+    background-color: #2563EB;
+    color: #ffffff;
+    transition: 0.3s ease;
+}
+
+.logo-icon:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+.logo-blue {
+    color: #2563EB;
+}
+
+.logo-black {
+    color: #161616;
+}
+
+
+.main-navigation .nav-links > li > a {
+display: inline-flex;
+align-items: center;
+vertical-align: middle;
+}
+
+.main-navigation .nav-links > li > a > span {
+margin-top: 0;
+margin-left: 0;
+line-height: normal;
+}
+
+.main-navigation .nav-links {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.main-navigation .nav-links > li {
+margin: 0;
+}
+.main-navigation .nav-links .dropdown-parent {
+margin-left: -199px;
+}
+.dropdown-column h3 {
+position: relative;
+display: inline-block;
+padding-bottom: 8px;
+}
+
+.dropdown-column h3::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 35px;
+height: 2px;
+background-color: #2563EB;
+border-radius: 2px;
+}/* Smooth Dropdown Animation */
+.dropdown-menu {
+opacity: 0;
+visibility: hidden;
+transform: translateY(15px);
+transition:
+opacity 0.6s ease,
+transform 0.6s ease,
+visibility 0.6s ease;
+pointer-events: none;
+}
+
+.dropdown-parent:hover .dropdown-menu {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+pointer-events: auto;
+}
+
+
+
+
+
+/* 1. ضبط الرابط والأبعاد الأساسية */
+.top-left a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 0 4px !important;
+  text-decoration: none !important;
+}
+
+/* 2. تثبيت ارتفاع الخطين بقيمة محددة ومتساوية تماماً */
+.top-left a::before,
+.top-left a::after {
+  content: '' !important;
+  display: inline-block !important;
+  width: 2px !important;
+  height: 1.2em !important; /* ارتفاع نسبي متساوي بناءً على حجم الخط */
+  background-color: #007bff !important; /* اللون الأزرق */
+  transform: scaleY(0) !important;
+  transition: transform 0.8s ease-in-out !important;
+}
+
+/* 3. الخط الشمال: يطلع من تحت لفوق */
+.top-left a::before {
+  transform-origin: top !important;
+  order: 3 !important;
+}
+
+/* 4. الخط اليمين: ينزل من فوق لتحت */
+.top-left a::after {
+  transform-origin: bottom !important;
+  order: 1 !important;
+  margin-left: -4px !important; /* مسافة بين الخطين */
+}
+
+/* تفعيل الحركة عند المرور بالماوس */
+.top-left a:hover::before,
+.top-left a:hover::after {
+  transform: scaleY(1) !important;
+  width: 1.5px !important;
+  height: 4em !important;
+}
+/* حركة الأيقونات عند مرور الماوس */
+header i,
+header svg {
+transition: transform 0.6s ease-in-out;
+transform-origin: center;
+}
+
+header i:hover,
+header svg:hover {
+transform: rotateY(180deg);
+}
